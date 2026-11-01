@@ -1,7 +1,7 @@
 Welcome to my project where there is absolutely no comments for absolutely no reason
 Because of that I have to explain to your dumb head how this projects works
 
-first one is in source/Main.java and it is just a summoner which summons the entire thing.
+1st one is in source/Main.java and it is just a summoner which summons the entire thing.
 2nd one is source/wrapper these modules are pretty special but can be easily be explained:
   Default.java is the default interface of the user which prints messages handles everything and exits
   it calls Caller.java which we will discuss later and it is the main launcher and Default also have no
@@ -9,6 +9,20 @@ first one is in source/Main.java and it is just a summoner which summons the ent
   Caller.java calls everything debugs everything and take care of everything is does not have the flashy
   scanners and printer but has a flashy debugger which debugs something like monster
   -u for un-encrypt and in that mode -k means path to the key -o path to store the solved data -i for
-  input data and thats it. while -e stands for encrypt in this mode -k means path to store the keys
+  input data and that's it. while -e stands for encrypt in this mode -k means path to store the keys
   -l for the level of jumbling higher numbers can make it laggy, -i for source file and -o for where
   to store the almost unreadable file.
+3rd one is well source/software
+  it has one more folder inside while one folder outside called Manifest.java which handles all the call 
+  handling. It is through which classes inside handlers are to be called. You can override it but this wiring
+  makes it easier to handle stuff because it is easier to know only the requirement than the entire code while wiring
+  so this file can be called the circuit box.
+  now inside handlers are two files that brings the powers of modules to a small premise. lets dive into:
+    Encrypter.java as the name suggests it encrypts stuff the same thing caller calls in -e function
+    it handles encryption by by importing modules that you haven't read yet. basically it gets data
+    then encrypts it using EBox and reset its value after everything get that lines password and then
+    re initiate the values and TaDa.then uses a mystery command called flush writes everything into the file.
+    Uncrypter.java as a normal human who doesn't hate common sense like many britains when it comes at using spices
+    and it works by using UBox it scrambles the values inside the box to match how it was while encrypted then...
+    it solves the character and so on it does its job. then it uses the mystery flush function which writes
+    everything to the file
