@@ -4,7 +4,7 @@ import java.util.Random;
 
 import modules.helpers.assign;
 public class EBox{
-    int securityLevel=1000;
+    int securityLevel=0;
     String password="";
     ArrayList<ArrayList<String>> box=new ArrayList<>();
     ArrayList<ArrayList<String>> original=new ArrayList<>();
