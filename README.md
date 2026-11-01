@@ -1,6 +1,6 @@
 # Java-Encrypter
 just a one-time program under GPLv3 licensing due to I want to make this open source
-Documentation is under USE.
+Documentation is under USES.
 ## License
 
 Copyright (C) 2026 krithikspanickerno1-code
