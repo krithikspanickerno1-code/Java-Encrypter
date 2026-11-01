@@ -15,4 +15,4 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 #use 3 let me stop joking out the obvious
 
 ## USES *Real*
-Look at Documentation.txt
+Look at /Documentation.txt
