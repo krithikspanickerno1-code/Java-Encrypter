@@ -1,0 +1,14 @@
+Welcome to my project where there is absolutely no comments for absolutely no reason
+Because of that I have to explain to your dumb head how this projects works
+
+first one is in source/Main.java and it is just a summoner which summons the entire thing.
+2nd one is source/wrapper these modules are pretty special but can be easily be explained:
+  Default.java is the default interface of the user which prints messages handles everything and exits
+  it calls Caller.java which we will discuss later and it is the main launcher and Default also have no
+  text mode if you don't want a text.
+  Caller.java calls everything debugs everything and take care of everything is does not have the flashy
+  scanners and printer but has a flashy debugger which debugs something like monster
+  -u for un-encrypt and in that mode -k means path to the key -o path to store the solved data -i for
+  input data and thats it. while -e stands for encrypt in this mode -k means path to store the keys
+  -l for the level of jumbling higher numbers can make it laggy, -i for source file and -o for where
+  to store the almost unreadable file.
