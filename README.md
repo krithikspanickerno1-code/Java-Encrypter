@@ -16,7 +16,7 @@ and the power of the encryption though it might be very slow
 
 # LICENSE
 
-This project is under GNU General Public License version 2.0 and I specify
+This project is under **GNU General Public License version 2.0** and I specify
 to only use GNU General Public License version 2.0 in your fork and this
 project has **ABSOLUTELY NO WARRANTY** whatsoever.
 
