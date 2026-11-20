@@ -18,12 +18,16 @@ and the power of the encryption though it might be very slow
 
 This project is under **GNU General Public License version 2.0** and I specify
 to only use GNU General Public License version 2.0 in your fork and this
-project has **ABSOLUTELY NO WARRANTY** whatsoever.
+project has **ABSOLUTELY NO WARRANTY** whatsoever. if your ram cries
+remember, **ABSOLUTELY NO WARRANTY**.
 
 # WARNINGS
 
 This program loads three large file before flushing so ram might rise
-a lot and is expected... 
+a lot and is expected... and for windows uses.... i don't hate you
+i hate windows for making \ as their folder separator so if you want to type
+\ then in the GUI box or in the old wrapper where it is just a prompt you have
+to replace \ with \\ or \\ with \\\\ so it is C:\\\\path\\to\\your\\data
 
 # What I want to say
 
