@@ -1,7 +1,7 @@
 package wrapper;
 import software.Manifest;
 public class Caller{
-    public void load(String[] args){
+    public Caller(String[] args){
         if(args[0].equalsIgnoreCase("-u") && args.length==4){
             String[] hold = new String[3];
             if(args[1].startsWith("-i")){

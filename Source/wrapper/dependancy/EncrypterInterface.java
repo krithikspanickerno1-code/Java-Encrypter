@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import wrapper.Caller;
 public class EncrypterInterface implements MainFrameInterface{
+    int limitCounter=0;
     boolean[] isValid={false, false, false};
     String[] responses={null, "1000", null, null};
     public void encrypt(){
@@ -38,8 +39,11 @@ public class EncrypterInterface implements MainFrameInterface{
         buttonForInputFile.setFocusable(false);
         buttonForInputFile.addActionListener((e) -> {
             Path path=Paths.get(inputFile.getText()).toAbsolutePath();
-            if(!(Files.exists(path) && Files.isRegularFile(path) && Files.isReadable(path))){
-                if(!Files.exists(path)){
+            if(path==null || !(Files.isReadable(path) && Files.exists(path) && Files.isRegularFile(path))){
+                if(path==null){
+                    labelForInputFile.setText("It is not a file");
+                }
+                else if(!Files.exists(path)){
                     labelForInputFile.setText("File Doesn't Exist");
                 }
                 else if(!Files.isRegularFile(path)){
@@ -48,14 +52,14 @@ public class EncrypterInterface implements MainFrameInterface{
                 else if(!Files.isReadable(path)){
                     labelForInputFile.setText("File is un-readable");
                 }
-                labelForInputFile.setBackground(Color.BLUE);
+                labelForInputFile.setOpaque(false);
                 labelForInputFile.setForeground(Color.RED);
                 System.err.println("An error was triggered by section 1");
                 isValid[0]=false;
             }
             else{
                 labelForInputFile.setText("Valid File!");
-                labelForInputFile.setBackground(Color.GREEN);
+                labelForInputFile.setOpaque(true);
                 labelForInputFile.setForeground(Color.BLUE);
                 isValid[0]=true;
                 responses[0]=inputFile.getText();
@@ -114,24 +118,27 @@ public class EncrypterInterface implements MainFrameInterface{
         buttonForKeyFile.addActionListener((e) -> {
             Path path=Paths.get(keyFile.getText()).toAbsolutePath().getParent();
             Path path1=Paths.get(keyFile.getText()).toAbsolutePath();
-            if(!(Files.isWritable(path) && Files.exists(path) && Files.isDirectory(path) && !Files.isDirectory(path1))){
-                if(!Files.exists(path) || !Files.isDirectory(path)){
+            if(path==null || !(Files.isWritable(path) && Files.exists(path) && Files.isDirectory(path) && !Files.isDirectory(path1))){
+                if(path==null){
+                    labelForKeyFile.setText("Location is un-writable");
+                }
+                else if(!Files.exists(path) || !Files.isDirectory(path)){
                     labelForKeyFile.setText("The Location Doesn't Exist");
                 }
                 else if(Files.isDirectory(path1)){
-                    labelForKeyFile.setText("Existing directory");
+                    labelForKeyFile.setText("Existing directory with same name detected");
                 }
                 else if(!Files.isWritable(path)){
                     labelForKeyFile.setText("Un-Writable Location");
                 }
                 System.err.println("An error was triggered by section 3");
                 isValid[1]=false;
-                labelForKeyFile.setBackground(Color.BLUE);
+                labelForKeyFile.setOpaque(false);
                 labelForKeyFile.setForeground(Color.RED);
             }
             else{
                 labelForKeyFile.setText("Valid File!");
-                labelForKeyFile.setBackground(Color.GREEN);
+                labelForKeyFile.setOpaque(true);
                 labelForKeyFile.setForeground(Color.BLUE);
                 isValid[1]=true;
                 responses[2]=keyFile.getText();
@@ -157,12 +164,15 @@ public class EncrypterInterface implements MainFrameInterface{
         buttonForEncryptedDataFile.addActionListener((e) -> {
             Path path=Paths.get(encryptedDataFile.getText()).toAbsolutePath().getParent();
             Path path1=Paths.get(encryptedDataFile.getText()).toAbsolutePath();
-            if(!(Files.isWritable(path) && Files.exists(path) && Files.isDirectory(path) && !Files.isDirectory(path1))){
-                if(!Files.exists(path) || !Files.isDirectory(path)){
+            if(path==null || !(Files.isWritable(path) && Files.exists(path) && Files.isDirectory(path) && !Files.isDirectory(path1))){
+                if(path==null){
+                    labelForEncryptedDataFile.setText("Location is un-writable");
+                }
+                else if(!Files.exists(path) || !Files.isDirectory(path)){
                     labelForEncryptedDataFile.setText("The Location Doesn't Exist");
                 }
                 else if(Files.isDirectory(path1)){
-                    labelForEncryptedDataFile.setText("Existing directory");
+                    labelForEncryptedDataFile.setText("Existing directory with same name detected");
                 }
                 else if(!Files.isWritable(path)){
                     labelForEncryptedDataFile.setText("Un-Writable Location");
@@ -202,24 +212,24 @@ public class EncrypterInterface implements MainFrameInterface{
                     break;
                 }
             }
-            if(!Continue){
+            if(limitCounter==3){
+                progressText.setText("limit reached cannot use 3 encrypters at once");
+            }
+            else if(!Continue){
                 progressText.setText("The form isn't complete...");
                 frame.add(progressText);
                 frame.repaint();
             }
             else{
                 String[] args={"-e", "-i"+responses[0], "-l"+responses[1], "-k"+responses[2], "-o"+responses[3]};
+                limitCounter++;
                 Thread thread=new Thread(() ->{
                     progressText.setText("Encrypting might take a while");
-                    try{
-                        new Caller(args);
-                    }
-                    catch(NumberFormatException e1){
-                        System.err.println("The keys didnt had number");
-                    }
+                    new Caller(args);
                     progressText.setText("Completed!!!");
-                    Timer timer=new Timer(5000, (e0) -> progressText.setText("Click the button below to start Un-Encrypting"));
+                    Timer timer=new Timer(5000, (e0) -> {progressText.setText("Click the button below to start Un-Encrypting");});
                     timer.start();
+                    limitCounter--;
                 });
                 thread.start();
             }

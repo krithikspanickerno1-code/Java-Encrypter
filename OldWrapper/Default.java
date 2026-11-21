@@ -1,27 +1,21 @@
 package wrapper;
 import java.util.Scanner;
 public class Default{
-    public static void display(String[] args){
-        if(args.length==4 || args.length==5){
-            Caller worker = new Caller();
-            worker.load(args);
+    public static void display(){
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter (e) to encrypt or (u) to un-encrypt: ");
+        String ress=input.nextLine();
+        if(ress.isEmpty()){
+            System.exit(0);
+        }
+        else if(ress.charAt(0)=='u'){
+            optionU(input);
+        }
+        else if(ress.charAt(0)=='e'){
+            optionE(input);
         }
         else{
-            Scanner input=new Scanner(System.in);
-            System.out.print("Enter (e) to encrypt or (u) to un-encrypt: ");
-            String ress=input.nextLine();
-            if(ress.isEmpty()){
-                System.exit(0);
-            }
-            else if(ress.charAt(0)=='u'){
-                optionU(input);
-            }
-            else if(ress.charAt(0)=='e'){
-                optionE(input);
-            }
-            else{
-                System.exit(0);
-            }
+            System.exit(0);
         }
     }
     public static void optionU(Scanner input){
@@ -34,8 +28,7 @@ public class Default{
         System.out.print("Enter the file to store un-encrypted data(can be a non-existing file): ");
         args[3]="-o"+input.nextLine();
         try{
-            Caller worker = new Caller();
-            worker.load(args);
+            new Caller(args);
         }
         catch(NumberFormatException e){
             System.err.print("Are you sure your key is not fake");
@@ -64,8 +57,7 @@ public class Default{
             args[4]="-l1000";
         }
         try{
-            Caller worker = new Caller();
-            worker.load(args);
+            new Caller(args);
         }
         catch(Exception e){
             System.err.print("Something Unexpected happened");

@@ -1,7 +1,5 @@
 package wrapper;
-import wrapper.dependancy.MainFrameInterface;
-import wrapper.dependancy.UnEncrypterInterface;
-import wrapper.dependancy.EncrypterInterface;
+import wrapper.dependancy.*;
 import javax.swing.JButton;
 public class Default implements MainFrameInterface{
     public static void display(){

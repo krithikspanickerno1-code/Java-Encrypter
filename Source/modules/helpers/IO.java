@@ -12,40 +12,40 @@ public class IO{
         Path p=Paths.get(path);
         try{
             if(Files.isDirectory(p)){
-                System.out.println("The file is a directory");
+                System.err.println("The file is a directory");
             }
             else{
                 lines=new ArrayList<>(Files.readAllLines(p));
             }
         }
         catch(NoSuchFileException e){
-            System.out.println("The file does not exist");
+            System.err.println("The file does not exist");
         }
         catch(AccessDeniedException e){
-            System.out.println("Cannot read the file");
+            System.err.println("Cannot read the file");
         }
         catch(IOException e){
-            System.out.println("An Unexpected Error occured");
+            System.err.println("An Unexpected Error occured");
         }
     }
     public void write(String path){
         Path p=Paths.get(path);
         try{
             if(Files.isDirectory(p)){
-                System.out.println("The file is a directory");
+                System.err.println("The file is a directory");
             }
             else{
                 Files.write(p, lines);
             }
         }
         catch(NoSuchFileException e){
-            System.out.println("The location does not exist");
+            System.err.println("The location does not exist");
         }
         catch(AccessDeniedException e){
-            System.out.println("Cannot write the file to location");
+            System.err.println("Cannot write the file to location");
         }
         catch(IOException e){
-            System.out.println("An Unexpected Error occured");
+            System.err.println("An Unexpected Error occured");
         }
     }
     public ArrayList<String> getLines(){
