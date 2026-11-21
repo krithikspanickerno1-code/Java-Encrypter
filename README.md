@@ -1,38 +1,9 @@
-# Java-Encrypter
-# Hopes
-
-None
-
-# Why use
-
-To make it better and develop it much more.
-I only made the backbone, find a way to encrypt
-the key with a short code... to make it portable
-
-# Can I use it Now?
-
-Yes you can. Just that the key gets bigger according to the size
-and the power of the encryption though it might be very slow
+## Java-Encrypter
 
 # LICENSE
-
-This project is under **GNU General Public License version 2.0** and I specify
-to only use GNU General Public License version 2.0 in your fork and this
-project has **ABSOLUTELY NO WARRANTY** whatsoever. if your ram cries
-remember, **ABSOLUTELY NO WARRANTY**.
-
-# WARNINGS
-
-This program loads three large file before flushing so ram might rise
-a lot and is expected... and for windows uses.... i don't hate you
-i hate windows for making \ as their folder separator so if you want to type
-\ then in the GUI box or in the old wrapper where it is just a prompt you have
-to replace \ with \\ or \\ with \\\\ so it is C:\\\\path\\to\\your\\data
-
-# What I want to say
-
-You can code this in C or C++ Python or
-any other language in a better way though i beg you to code Java.
-It might be a lot wordy because it is rock solid. I don't discourage
-the use of other languages to make it more safe for ram which is
-**Precious Gold** for reasons that you should know.
+This project is under **GNU GENERAL PUBLIC LICENSE(GLPv2)** 
+and any forks or derivative should be under **GNU GENERAL PUBLIC LICENSE(GLPv2)** Licensing-**No Exceptions**
+> **NO WARRANTY** this program is just a hobby project that people can use learn and rewrite
+> I will not be responsible for any problem that without even the implied warranty of **MERCHANTABILITY** or **FITNESS FOR A PARTICULAR PURPOSE**.
+> See the-**GNU General Public License version 2.0** for more details.
+> Thank You For Reading.
